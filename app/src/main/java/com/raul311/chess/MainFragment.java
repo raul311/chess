@@ -17,7 +17,7 @@ import com.raul311.chess.board.Tile;
 
 public class MainFragment extends Fragment {
 
-    private GridView gridView;
+    private Board board;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,9 +29,9 @@ public class MainFragment extends Fragment {
                              Bundle savedInstanceState) {
 
         final View view = inflater.inflate(R.layout.fragment_main, container, false);
-        gridView = (Board) view.findViewById(R.id.chess_gridview);
-        gridView.setNumColumns(8);
-        gridView.setAdapter(new BoardAdapter(getActivity(), new Tile[1][1]));
+        board = (Board) view.findViewById(R.id.chess_gridview);
+        board.setNumColumns(8);
+        board.setAdapter(new BoardAdapter(getActivity(), board.getTiles()));
         return view;
     }
 

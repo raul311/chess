@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 
 /**
  * Created by raul311
@@ -15,9 +14,9 @@ import android.widget.GridView;
 
 public class BoardAdapter extends BaseAdapter {
 
-    private static final int COLUMN_NUMBER = 8;
-    private static final int BLACK_COLOR = 0xFFFFFFFF;
-    private static final int WHITE_COLOR = 0xFF000000;
+    public static final int COLUMN_NUMBER = 8;
+    public static final int BLACK_COLOR = 0xFFFFFFFF;
+    public static final int WHITE_COLOR = 0xFF000000;
 
     private Context context;
     private Tile[][] tiles;
@@ -27,17 +26,18 @@ public class BoardAdapter extends BaseAdapter {
     public BoardAdapter(Context context, Tile[][] tiles) {
         this.context = context;
         this.tiles = tiles;
-
+/*
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         Display display = wm.getDefaultDisplay();
         Point size = new Point();
         display.getSize(size);
         this.imageWidth = size.x / COLUMN_NUMBER;
         this.imageHeight = size.y / COLUMN_NUMBER;
+        */
     }
 
     public View getView(int position, View view, ViewGroup viewGroup) {
-
+/*
         if (view == null) {
             view = new View(context);
             view.setLayoutParams(new Board.LayoutParams(imageWidth, imageHeight));
@@ -49,6 +49,10 @@ public class BoardAdapter extends BaseAdapter {
         }
 
         return view;
+        */
+        int c = position % 8;
+        int r = position / 8;
+        return tiles[c][r];
     }
 
     public Object getItem(int id) {
