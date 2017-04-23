@@ -7,30 +7,30 @@ import java.util.List;
  * Created by raul311
  */
 
-public class ChessPiecefactory {
+public class ChessPieceFactory {
 
-    public static ChessPiece getChessPiece(String pieceType) {
+    public static ChessPiece getChessPiece(String teamType, String pieceType) {
         switch (pieceType) {
             case ChessPiecesConstants.PAWN_TYPE:
-                return new Pawn();
+                return new Pawn(teamType);
             case ChessPiecesConstants.BISHOP_TYPE:
-                return new Bishop();
+                return new Bishop(teamType);
             case ChessPiecesConstants.KNIGHT_TYPE:
-                return new Knight();
+                return new Knight(teamType);
             case ChessPiecesConstants.ROOK_TYPE:
-                return new Rook();
+                return new Rook(teamType);
             case ChessPiecesConstants.QUEEN_TYPE:
-                return new Queen();
+                return new Queen(teamType);
             case ChessPiecesConstants.KING_TYPE:
-                return new King();
+                return new King(teamType);
         }
         return null;
     }
 
-    public static List<ChessPiece> getChessPieces(String pieceType, int count) {
+    public static List<ChessPiece> getChessPieces(String teamType, String pieceType, int count) {
         List<ChessPiece> chessPieces = new ArrayList<>();
         while (count > 0) {
-            chessPieces.add(getChessPiece(pieceType));
+            chessPieces.add(getChessPiece(teamType, pieceType));
             count--;
         }
         return chessPieces;
